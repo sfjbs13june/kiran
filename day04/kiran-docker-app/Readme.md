@@ -1,4 +1,4 @@
-## Simple calculator app
+## Simple Info app
 
 ### Build application
 
