@@ -11,32 +11,34 @@ public class HosController {
 
     Map<String, Hospital> hosMap= new HashMap<String, Hospital>();
 
-    @PostMapping("/create")
-    public Hospital createStudent(@RequestBody Hospital hospital){
+
+    @PostMapping("/savepatient")
+    public Hospital createPatient(@RequestBody Hospital hospital){
         hosMap.put(hospital.getHname(), hospital);
         return hospital;
     }
 
-    @GetMapping("/read")
-    public Hospital readeStudent(@RequestParam("name") String name){
+    @GetMapping("/patientname")
+    public Hospital readepatient(@RequestParam("name") String name){
         return hosMap.get(name);
+//    post save/patient
     }
 
-    @PutMapping("/update")
-    public Hospital updateStudent(@RequestParam("name") String name, @RequestParam("age") int age){
-        Hospital hospital = hosMap.get(name);
-        hospital.setId(age);
-        hosMap.put(name, hospital);
+    @PutMapping("/update/hospital")
+    public Hospital updateHospital(@RequestParam("address") String address){
+        Hospital hospital = hosMap.get(address);
+        hospital.setId(address);
+        hosMap.put(address, hospital);
         return hospital;
     }
 
-    @DeleteMapping("/delete")
-    public void deleteStudent(@RequestParam("name") String name){
+    @DeleteMapping("/delete/patient")
+    public void deleteHospita(@RequestParam("name") String name){
         hosMap.remove(name);
     }
 
     @GetMapping("/read/{name}")
-    public Hospital ReadNameStudent(@PathVariable String name){
+    public Hospital ReadName(@PathVariable String name){
         return hosMap.get(name);
     }
 
